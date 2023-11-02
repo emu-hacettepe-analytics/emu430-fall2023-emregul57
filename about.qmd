@@ -20,8 +20,22 @@ sidebar: false
 
 # Competencies
 
-R, Quarto, Git, Python , Solidworks ,Microsoft Office
+-   R
+
+-   Quarto
+
+-   Git
+
+-   Python
+
+-    Solidworks
+
+-   Microsoft Office
 
 # Hobbies
 
 Paragliding , Riding
+
+# Resume
+
+![](Emre Gul CV.pdf)
