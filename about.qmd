@@ -6,6 +6,7 @@ sidebar: false
 # Education
 
 -   B.S., Industrial Engineering, Hacettepe University, Turkey, 2019 - ongoing.
+-   High School, Aziz Atik High School, Turkey, 2014 - 2018
 
 # Work Experience
 
