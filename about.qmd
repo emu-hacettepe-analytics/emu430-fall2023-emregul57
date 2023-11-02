@@ -20,6 +20,8 @@ sidebar: false
 
 # Competencies
 
-R, Quarto, Git, Python
+R, Quarto, Git, Python , Solidworks ,Microsoft Office
 
 # Hobbies
+
+Paragliding , Riding
