@@ -18,24 +18,20 @@ sidebar: false
 
 # Projects
 
-# Competencies
+# Skills
 
--   R
-
--   Quarto
-
--   Git
-
--   Python
-
--    Solidworks
-
--   Microsoft Office
+| Computer Skills  | Competency Level |
+|------------------|------------------|
+| Python           | Good             |
+| R                | Beginner         |
+| Solidworks       | Good             |
+| Git              | Beginner         |
+| Microsoft Office | Advanced         |
+| Quarto           | Beginner         |
 
 # Hobbies
 
 Paragliding , Riding
 
 # Resume
-
-![](Emre Gul CV.pdf)
+CV : [Click here to download my resume](Emre Gul CV.pdf)
