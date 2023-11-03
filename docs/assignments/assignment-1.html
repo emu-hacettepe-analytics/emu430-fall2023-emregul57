@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -207,8 +173,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#assignment-1" id="toc-assignment-1" class="nav-link active" data-scroll-target="#assignment-1">Assignment 1</a>
   <ul class="collapse">
-  <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a">(a)</a></li>
-  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">(b)</a></li>
+  <li><a href="#athe-video-i-watched-rstudio-cloud-demo-with-dr.-mine-çetinkaya-rundel" id="toc-athe-video-i-watched-rstudio-cloud-demo-with-dr.-mine-çetinkaya-rundel" class="nav-link" data-scroll-target="#athe-video-i-watched-rstudio-cloud-demo-with-dr.-mine-çetinkaya-rundel">(a)The video I watched : <strong>RStudio Cloud Demo with Dr.&nbsp;Mine Çetinkaya-Rundel</strong></a>
+  <ul class="collapse">
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  </ul></li>
+  <li><a href="#bthe-differences-between-r-and-python" id="toc-bthe-differences-between-r-and-python" class="nav-link" data-scroll-target="#bthe-differences-between-r-and-python">(b)The differences between R and Python</a>
+  <ul class="collapse">
+  <li><a href="#syntax-and-data-structures" id="toc-syntax-and-data-structures" class="nav-link" data-scroll-target="#syntax-and-data-structures">1.Syntax and Data Structures</a></li>
+  <li><a href="#libraries-and-ecosystem" id="toc-libraries-and-ecosystem" class="nav-link" data-scroll-target="#libraries-and-ecosystem">2.Libraries and Ecosystem:</a></li>
+  <li><a href="#function-and-package-imports" id="toc-function-and-package-imports" class="nav-link" data-scroll-target="#function-and-package-imports">3.Function and Package Imports:</a></li>
+  </ul></li>
+  <li><a href="#c-na_example-data-set" id="toc-c-na_example-data-set" class="nav-link" data-scroll-target="#c-na_example-data-set">(c) na_example Data Set</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -239,18 +214,75 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="assignment-1" class="level1">
 <h1>Assignment 1</h1>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-<p>My first assignment has two parts.</p>
-<section id="a" class="level2">
-<h2 class="anchored" data-anchor-id="a">(a)</h2>
+<p>My first assignment has three parts:</p>
+<section id="athe-video-i-watched-rstudio-cloud-demo-with-dr.-mine-çetinkaya-rundel" class="level2">
+<h2 class="anchored" data-anchor-id="athe-video-i-watched-rstudio-cloud-demo-with-dr.-mine-çetinkaya-rundel">(a)The video I watched : <a href="https://www.youtube.com/watch?v=liyJparRz2c&amp;list=PL9HYL-VRX0oTOK4cpbCbRk15K2roEgzVW&amp;index=57"><strong>RStudio Cloud Demo with Dr.&nbsp;Mine Çetinkaya-Rundel</strong></a></h2>
+<section id="summary" class="level3">
+<h3 class="anchored" data-anchor-id="summary">Summary</h3>
+<p>RStudio Cloud demo presentation provides information about the usage and sharing of RStudio Cloud. RStudio Cloud is a cloud-based development environment designed primarily for educational purposes. Users can create projects, share them, and interact with students.</p>
+<p>Highlights</p>
+<p>-🏢 RStudio Cloud provides users with easy access to a specific educational environment.</p>
+<p>-🎓 You can collaborate in short-term activities by sharing a single project.</p>
+<p>-🔄 You can enable students to continuously work on their projects by copying them.</p>
+<p>-👀 You can assist and provide feedback to students by reviewing their projects.</p>
+<p>-💡 You can provide a starting point for students and standardize learning materials using basic projects.</p>
 </section>
-<section id="b" class="level2">
-<h2 class="anchored" data-anchor-id="b">(b)</h2>
+</section>
+<section id="bthe-differences-between-r-and-python" class="level2">
+<h2 class="anchored" data-anchor-id="bthe-differences-between-r-and-python">(b)The differences between R and Python</h2>
+<section id="syntax-and-data-structures" class="level3">
+<h3 class="anchored" data-anchor-id="syntax-and-data-structures">1.Syntax and Data Structures</h3>
+<p>Creating a vector and performing vectorized operations in R</p>
+<p>numbers &lt;- c(1, 2, 3, 4, 5)</p>
+<p>squared &lt;- numbers^2</p>
+<p>mean_value &lt;- mean(numbers)</p>
+<p>Creating a list and performing element-wise operations in Python</p>
+<p>numbers = [1, 2, 3, 4, 5]</p>
+<p>squared = [x**2 for x in numbers]</p>
+<p>mean_value = sum(numbers) / len(numbers)</p>
+</section>
+<section id="libraries-and-ecosystem" class="level3">
+<h3 class="anchored" data-anchor-id="libraries-and-ecosystem">2.Libraries and Ecosystem:</h3>
+<p>Using the dplyr package for data manipulation in R</p>
+<p>library(dplyr)</p>
+<p>df &lt;- data.frame(x = c(1, 2, 3, 4, 5), y = c(6, 7, 8, 9, 10))</p>
+<p>result &lt;- df %&gt;% filter(x &gt; 2) %&gt;% select(y)</p>
+<p>Using pandas for data manipulation in Python</p>
+<p>import pandas as pd</p>
+<p>df = pd.DataFrame({‘x’: [1, 2, 3, 4, 5], ‘y’: [6, 7, 8, 9, 10]})</p>
+<p>result = df[df[‘x’] &gt; 2][‘y’]</p>
+</section>
+<section id="function-and-package-imports" class="level3">
+<h3 class="anchored" data-anchor-id="function-and-package-imports">3.Function and Package Imports:</h3>
+<p>Loading the ggplot2 package in R</p>
+<p>library(ggplot2)</p>
+<p>ggplot(df, aes(x, y)) + geom_point()</p>
+<p># Importing the matplotlib library in Python</p>
+<p>import matplotlib.pyplot as plt</p>
+<p>plt.scatter(df[‘x’], df[‘y’])</p>
+<p>plt.show()</p>
+</section>
+</section>
+<section id="c-na_example-data-set" class="level2">
+<h2 class="anchored" data-anchor-id="c-na_example-data-set">(c) na_example Data Set</h2>
+<p>Install the “dslabs” package (only need to install once)</p>
+<p>#install.packages(“dslabs”)</p>
+<p>#Load the “dslabs” library</p>
+<p>library(dslabs)</p>
+<p>#Load the “na_example” data</p>
+<p>data(“na_example”)</p>
+<p>#Print the “na_example” data</p>
+<p>print(na_example)</p>
+<p>#Check for NAs and replace them with 1</p>
+<p>na_check &lt;- ifelse(is.na(na_example), 1, 0)</p>
+<p>#Calculate the total number of NAs</p>
+<p>sum_na &lt;- sum(na_check)</p>
+<p>sum_na # Total number of NAs</p>
+<p>#Replace NAs with 0</p>
+<p>without_na &lt;- ifelse(is.na(na_example), 0, na_example)</p>
+<p>#Calculate the updated number of NAs (should be 0)</p>
+<p>updated_num_na &lt;- sum(ifelse(is.na(without_na), 1, 0))</p>
+<p>updated_num_na</p>
 
 
 </section>

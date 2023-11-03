@@ -4,12 +4,114 @@ title: "Assignment 1"
 
 # Assignment 1
 
-```{r}
-1 + 1
-```
+My first assignment has three parts:
 
-My first assignment has two parts.
+## (a)The video I watched : [**RStudio Cloud Demo with Dr. Mine Çetinkaya-Rundel**](https://www.youtube.com/watch?v=liyJparRz2c&list=PL9HYL-VRX0oTOK4cpbCbRk15K2roEgzVW&index=57)
 
-## (a)
+### Summary
 
-## (b)
+RStudio Cloud demo presentation provides information about the usage and sharing of RStudio Cloud. RStudio Cloud is a cloud-based development environment designed primarily for educational purposes. Users can create projects, share them, and interact with students.
+
+Highlights
+
+-🏢 RStudio Cloud provides users with easy access to a specific educational environment.
+
+-🎓 You can collaborate in short-term activities by sharing a single project.
+
+-🔄 You can enable students to continuously work on their projects by copying them.
+
+-👀 You can assist and provide feedback to students by reviewing their projects.
+
+-💡 You can provide a starting point for students and standardize learning materials using basic projects.
+
+## (b)The differences between R and Python
+
+### 1.Syntax and Data Structures
+
+Creating a vector and performing vectorized operations in R
+
+numbers \<- c(1, 2, 3, 4, 5)
+
+squared \<- numbers\^2
+
+mean_value \<- mean(numbers)
+
+Creating a list and performing element-wise operations in Python
+
+numbers = \[1, 2, 3, 4, 5\]
+
+squared = \[x\*\*2 for x in numbers\]
+
+mean_value = sum(numbers) / len(numbers)
+
+### 2.Libraries and Ecosystem:
+
+Using the dplyr package for data manipulation in R
+
+library(dplyr)
+
+df \<- data.frame(x = c(1, 2, 3, 4, 5), y = c(6, 7, 8, 9, 10))
+
+result \<- df %\>% filter(x \> 2) %\>% select(y)
+
+Using pandas for data manipulation in Python
+
+import pandas as pd
+
+df = pd.DataFrame({'x': \[1, 2, 3, 4, 5\], 'y': \[6, 7, 8, 9, 10\]})
+
+result = df\[df\['x'\] \> 2\]\['y'\]
+
+### 3.Function and Package Imports:
+
+Loading the ggplot2 package in R
+
+library(ggplot2)
+
+ggplot(df, aes(x, y)) + geom_point()
+
+\# Importing the matplotlib library in Python
+
+import matplotlib.pyplot as plt
+
+plt.scatter(df\['x'\], df\['y'\])
+
+plt.show()
+
+## (c) na_example Data Set
+
+Install the "dslabs" package (only need to install once)
+
+#install.packages("dslabs")
+
+#Load the "dslabs" library
+
+library(dslabs)
+
+#Load the "na_example" data
+
+data("na_example")
+
+#Print the "na_example" data
+
+print(na_example)
+
+#Check for NAs and replace them with 1
+
+na_check \<- ifelse(is.na(na_example), 1, 0)
+
+#Calculate the total number of NAs
+
+sum_na \<- sum(na_check)
+
+sum_na \# Total number of NAs
+
+#Replace NAs with 0
+
+without_na \<- ifelse(is.na(na_example), 0, na_example)
+
+#Calculate the updated number of NAs (should be 0)
+
+updated_num_na \<- sum(ifelse(is.na(without_na), 1, 0))
+
+updated_num_na

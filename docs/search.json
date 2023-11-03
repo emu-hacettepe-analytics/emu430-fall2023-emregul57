@@ -39,7 +39,28 @@
     "href": "assignments/assignment-1.html",
     "title": "Assignment 1",
     "section": "",
-    "text": "1 + 1\n\n[1] 2\n\n\nMy first assignment has two parts."
+    "text": "My first assignment has three parts:\n\n\n\n\nRStudio Cloud demo presentation provides information about the usage and sharing of RStudio Cloud. RStudio Cloud is a cloud-based development environment designed primarily for educational purposes. Users can create projects, share them, and interact with students.\nHighlights\n-🏢 RStudio Cloud provides users with easy access to a specific educational environment.\n-🎓 You can collaborate in short-term activities by sharing a single project.\n-🔄 You can enable students to continuously work on their projects by copying them.\n-👀 You can assist and provide feedback to students by reviewing their projects.\n-💡 You can provide a starting point for students and standardize learning materials using basic projects.\n\n\n\n\n\n\nCreating a vector and performing vectorized operations in R\nnumbers &lt;- c(1, 2, 3, 4, 5)\nsquared &lt;- numbers^2\nmean_value &lt;- mean(numbers)\nCreating a list and performing element-wise operations in Python\nnumbers = [1, 2, 3, 4, 5]\nsquared = [x**2 for x in numbers]\nmean_value = sum(numbers) / len(numbers)\n\n\n\nUsing the dplyr package for data manipulation in R\nlibrary(dplyr)\ndf &lt;- data.frame(x = c(1, 2, 3, 4, 5), y = c(6, 7, 8, 9, 10))\nresult &lt;- df %&gt;% filter(x &gt; 2) %&gt;% select(y)\nUsing pandas for data manipulation in Python\nimport pandas as pd\ndf = pd.DataFrame({‘x’: [1, 2, 3, 4, 5], ‘y’: [6, 7, 8, 9, 10]})\nresult = df[df[‘x’] &gt; 2][‘y’]\n\n\n\nLoading the ggplot2 package in R\nlibrary(ggplot2)\nggplot(df, aes(x, y)) + geom_point()\n# Importing the matplotlib library in Python\nimport matplotlib.pyplot as plt\nplt.scatter(df[‘x’], df[‘y’])\nplt.show()\n\n\n\n\nInstall the “dslabs” package (only need to install once)\n#install.packages(“dslabs”)\n#Load the “dslabs” library\nlibrary(dslabs)\n#Load the “na_example” data\ndata(“na_example”)\n#Print the “na_example” data\nprint(na_example)\n#Check for NAs and replace them with 1\nna_check &lt;- ifelse(is.na(na_example), 1, 0)\n#Calculate the total number of NAs\nsum_na &lt;- sum(na_check)\nsum_na # Total number of NAs\n#Replace NAs with 0\nwithout_na &lt;- ifelse(is.na(na_example), 0, na_example)\n#Calculate the updated number of NAs (should be 0)\nupdated_num_na &lt;- sum(ifelse(is.na(without_na), 1, 0))\nupdated_num_na"
+  },
+  {
+    "objectID": "assignments/assignment-1.html#athe-video-i-watched-rstudio-cloud-demo-with-dr.-mine-çetinkaya-rundel",
+    "href": "assignments/assignment-1.html#athe-video-i-watched-rstudio-cloud-demo-with-dr.-mine-çetinkaya-rundel",
+    "title": "Assignment 1",
+    "section": "",
+    "text": "RStudio Cloud demo presentation provides information about the usage and sharing of RStudio Cloud. RStudio Cloud is a cloud-based development environment designed primarily for educational purposes. Users can create projects, share them, and interact with students.\nHighlights\n-🏢 RStudio Cloud provides users with easy access to a specific educational environment.\n-🎓 You can collaborate in short-term activities by sharing a single project.\n-🔄 You can enable students to continuously work on their projects by copying them.\n-👀 You can assist and provide feedback to students by reviewing their projects.\n-💡 You can provide a starting point for students and standardize learning materials using basic projects."
+  },
+  {
+    "objectID": "assignments/assignment-1.html#bthe-differences-between-r-and-python",
+    "href": "assignments/assignment-1.html#bthe-differences-between-r-and-python",
+    "title": "Assignment 1",
+    "section": "",
+    "text": "Creating a vector and performing vectorized operations in R\nnumbers &lt;- c(1, 2, 3, 4, 5)\nsquared &lt;- numbers^2\nmean_value &lt;- mean(numbers)\nCreating a list and performing element-wise operations in Python\nnumbers = [1, 2, 3, 4, 5]\nsquared = [x**2 for x in numbers]\nmean_value = sum(numbers) / len(numbers)\n\n\n\nUsing the dplyr package for data manipulation in R\nlibrary(dplyr)\ndf &lt;- data.frame(x = c(1, 2, 3, 4, 5), y = c(6, 7, 8, 9, 10))\nresult &lt;- df %&gt;% filter(x &gt; 2) %&gt;% select(y)\nUsing pandas for data manipulation in Python\nimport pandas as pd\ndf = pd.DataFrame({‘x’: [1, 2, 3, 4, 5], ‘y’: [6, 7, 8, 9, 10]})\nresult = df[df[‘x’] &gt; 2][‘y’]\n\n\n\nLoading the ggplot2 package in R\nlibrary(ggplot2)\nggplot(df, aes(x, y)) + geom_point()\n# Importing the matplotlib library in Python\nimport matplotlib.pyplot as plt\nplt.scatter(df[‘x’], df[‘y’])\nplt.show()"
+  },
+  {
+    "objectID": "assignments/assignment-1.html#c-na_example-data-set",
+    "href": "assignments/assignment-1.html#c-na_example-data-set",
+    "title": "Assignment 1",
+    "section": "",
+    "text": "Install the “dslabs” package (only need to install once)\n#install.packages(“dslabs”)\n#Load the “dslabs” library\nlibrary(dslabs)\n#Load the “na_example” data\ndata(“na_example”)\n#Print the “na_example” data\nprint(na_example)\n#Check for NAs and replace them with 1\nna_check &lt;- ifelse(is.na(na_example), 1, 0)\n#Calculate the total number of NAs\nsum_na &lt;- sum(na_check)\nsum_na # Total number of NAs\n#Replace NAs with 0\nwithout_na &lt;- ifelse(is.na(na_example), 0, na_example)\n#Calculate the updated number of NAs (should be 0)\nupdated_num_na &lt;- sum(ifelse(is.na(without_na), 1, 0))\nupdated_num_na"
   },
   {
     "objectID": "assignments.html",
