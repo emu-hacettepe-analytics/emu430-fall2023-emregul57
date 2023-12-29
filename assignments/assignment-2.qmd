@@ -152,7 +152,7 @@ Votes <- c(votes1, votes2)
 #| code-fold: true
 #| code-summary: "Show the code"
 movies <- data.frame(Title,Year,Duration,Rating,Votes)
-print(head(movies, 25))
+print(head(movies, 15))
 ```
 
 ## Part III
