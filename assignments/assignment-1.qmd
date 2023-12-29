@@ -2,8 +2,6 @@
 title: "Assignment 1"
 ---
 
-# Assignment 1
-
 My first assignment has three parts:
 
 ## (a)The video I watched : [**RStudio Cloud Demo with Dr. Mine Çetinkaya-Rundel**](https://www.youtube.com/watch?v=liyJparRz2c&list=PL9HYL-VRX0oTOK4cpbCbRk15K2roEgzVW&index=57)

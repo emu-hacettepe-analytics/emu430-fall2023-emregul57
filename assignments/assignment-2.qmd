@@ -2,8 +2,200 @@
 title: "Assignment 2"
 ---
 
-# Assignment 2
+The second assignment involves the Advanced Search feature on <https://m.imdb.com/search,> allowing us to list available movie data on IMDb. The task is to scrape the HTML and extract the results. Assignment II consists of four parts.
+
+## Part I
+
+### Defining URLs:
 
 ```{r}
-1 + 1
+#| code-fold: true
+#| code-summary: "Show the code"
+#Defining the URL for those with a Release Date between 2010 and 2023
+url1 <- "https://m.imdb.com/search/title/?title_type=feature&release_date=2010-01-01,2023-12-31&num_votes=2500,&country_of_origin=TR&count=250"
+#Defining the URL for those with a Release Date before 2010
+url2 <- "https://m.imdb.com/search/title/?title_type=feature&release_date=,2009-12-31&num_votes=2500,&country_of_origin=TR&count=250"
 ```
+
+## Part II
+
+### Loading necessary libraries:
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+library(tidyverse) # for everything :)
+library(rvest) # for HTML scraping
+library(stringr) # for string processing
+library(knitr)
+library(ggplot2)
+```
+
+### For Titles:
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+title1 <- read_html(url1) %>% 
+  html_elements(".ipc-title__text") %>% html_text()
+title1 <- tail(head(title1,-1),-1)
+title1 <- str_split(title1, " ", n=2)
+title1 <- unlist(lapply(title1, function(x) {x[2]}))
+
+title2 <- read_html(url2) %>%
+  html_elements(".ipc-title__text") %>% html_text()
+title2 <- tail(head(title2,-1),-1)
+title2 <- str_split(title2, " ", n=2)
+title2 <- unlist(lapply(title2, function(x) {x[2]}))
+#Combining Titles
+Title <- c(title1, title2)
+```
+
+### For Years:
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+year1 <- read_html(url1) %>%
+  html_elements(".dli-title-metadata-item:nth-child(1)") %>%
+  html_text() %>% as.numeric()
+
+year2 <- read_html(url2) %>%
+  html_elements(".dli-title-metadata-item:nth-child(1)") %>%
+  html_text() %>% as.numeric()
+#Combining Years
+Year <- c(year1, year2)
+```
+
+### For Durations :
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+convert_time_updated <- function(time_string) {
+  total_hours <- 0
+  total_minutes <- 0
+  
+  if (grepl("h", time_string)) {
+    time_parts <- strsplit(time_string, "h|m")[[1]]
+    if (length(time_parts) >= 1) {
+      total_hours <- as.numeric(time_parts[1])
+    }
+    if (length(time_parts) >= 2) {
+      total_minutes <- as.numeric(time_parts[2])
+    }
+  } else {
+    total_minutes <- as.numeric(gsub("m", "", time_string))
+  }
+  
+  total_duration <- total_hours * 60 + total_minutes
+  return(total_duration)
+}
+
+duration1 <- read_html(url1) %>%
+  html_elements(".dli-title-metadata-item:nth-child(2)") %>%
+  html_text()
+duration1 <- unlist(lapply(duration1, convert_time_updated))
+
+duration2 <- read_html(url2) %>%
+  html_elements(".dli-title-metadata-item:nth-child(2)") %>%
+  html_text()
+duration2 <- unlist(lapply(duration2, convert_time_updated))
+
+Duration <- c(duration1, duration2)
+```
+
+### For Ratings :
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+rating1 <- read_html(url1) %>%
+  html_elements(".ratingGroup--imdb-rating") %>%
+  html_text()
+rating1 <- str_extract(rating1, "\\d+\\.\\d+") %>%
+  as.numeric()
+
+rating2 <- read_html(url2) %>%
+  html_elements(".ratingGroup--imdb-rating") %>%
+  html_text()
+rating2 <- str_extract(rating2, "\\d+\\.\\d+") %>%
+  as.numeric()
+
+Rating <- c(rating1, rating2)
+```
+
+### For Votes :
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+votes1 <- read_html(url1) %>%
+  html_elements(".kRnqtn") %>%
+  html_text()
+votes1 <- gsub("\\D", "", votes1) %>%
+  as.numeric()
+
+votes2 <- read_html(url2) %>%
+  html_elements(".kRnqtn") %>%
+  html_text()
+votes2 <- gsub("\\D", "", votes2) %>%
+  as.numeric()
+
+Votes <- c(votes1, votes2)
+```
+
+### Data Frame :
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+movies <- data.frame(Title,Year,Duration,Rating,Votes)
+kable(head(movies, 10), caption = "IMDB Turkish Movies")
+```
+
+## Part III
+
+### A) Top 5 and Bottom 5 Movies by Rating
+
+#### Top 5 Movies by Rating
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+# Arrange the data frame in descending order by Rating
+movies <- movies[order(movies$Rating, decreasing = TRUE),]
+
+# Top 5 and bottom 5 movies based on user ratings
+top5 <- head(movies, 5)
+print(top5)
+```
+
+I've watched all of them multiple times, and I believe they deserve the ratings they received.
+
+#### Bottom 5 Movies by Rating
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+# Arrange the data frame in descending order by Rating
+movies <- movies[order(movies$Rating, decreasing = TRUE),]
+
+# Top 5 and bottom 5 movies based on user ratings
+bottom5 <- tail(movies, 5)
+print(bottom5)
+```
+
+I haven't watched any of them, and I don't intend to. Just the IMDb rating can convey a lot about a movie. I am definitely biased against these films :)
+
+### B) My Top 3 Favorite Turkish Movies
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+movies <-movies %>% filter(Title %in% c("Masumiyet", "Babam ve Oglum", "Yahsi Bati"))
+print(movies)
+```
+
+I believe they deserve the ratings they received. The rating for Yahşi Batı could have been a bit higher. In my opinion, it's Cem Yılmaz's funniest movie, but some people think it's not as good as GORA and AROG.
