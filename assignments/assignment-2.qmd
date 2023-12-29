@@ -152,7 +152,7 @@ Votes <- c(votes1, votes2)
 #| code-fold: true
 #| code-summary: "Show the code"
 movies <- data.frame(Title,Year,Duration,Rating,Votes)
-kable(head(movies, 10), caption = "IMDB Turkish Movies")
+print(head(movies, 25))
 ```
 
 ## Part III
@@ -164,11 +164,10 @@ kable(head(movies, 10), caption = "IMDB Turkish Movies")
 ```{r}
 #| code-fold: true
 #| code-summary: "Show the code"
-# Arrange the data frame in descending order by Rating
-movies <- movies[order(movies$Rating, decreasing = TRUE),]
 
-# Top 5 and bottom 5 movies based on user ratings
-top5 <- head(movies, 5)
+top_movies <- movies[order(movies$Rating, decreasing = TRUE),]
+
+top5 <- head(top_movies, 5)
 print(top5)
 ```
 
@@ -180,10 +179,10 @@ I've watched all of them multiple times, and I believe they deserve the ratings 
 #| code-fold: true
 #| code-summary: "Show the code"
 # Arrange the data frame in descending order by Rating
-movies <- movies[order(movies$Rating, decreasing = TRUE),]
+bot_movies <- movies[order(movies$Rating, decreasing = TRUE),]
 
 # Top 5 and bottom 5 movies based on user ratings
-bottom5 <- tail(movies, 5)
+bottom5 <- tail(bot_movies, 5)
 print(bottom5)
 ```
 
@@ -194,8 +193,149 @@ I haven't watched any of them, and I don't intend to. Just the IMDb rating can c
 ```{r}
 #| code-fold: true
 #| code-summary: "Show the code"
-movies <-movies %>% filter(Title %in% c("Masumiyet", "Babam ve Oglum", "Yahsi Bati"))
-print(movies)
+favorite_movies <-movies %>% filter(Title %in% c("Masumiyet", "Babam ve Oglum", "Yahsi Bati"))
+print(favorite_movies)
 ```
 
 I believe they deserve the ratings they received. The rating for Yahşi Batı could have been a bit higher. In my opinion, it's Cem Yılmaz's funniest movie, but some people think it's not as good as GORA and AROG.
+
+### C)Plots
+
+#### Average Ratings of Turkish Movies Over the Years
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+movies %>%
+  group_by(Year) %>% summarize(ave_rating = mean(Rating)) %>%
+  ggplot(aes(Year, ave_rating)) + geom_point() +
+  labs(x = "Year", y = "Rating Averages") +
+  ggtitle("Average Ratings of Turkish Movies Over the Years") +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+Over the years, it is observed that the rating of Turkish movies has decreased. I wonder about the reason behind this. I believe it might be due to the lack of meaningful stories and scripts.
+
+#### Number of Movies Over the Years
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+ggplot(movies, aes(x = factor(Year))) +
+  geom_bar(fill = "purple", color = "#FBDA21") +
+  labs(x = "Year", y = "Number of Movies") +
+  ggtitle("Number of Movies Over the Years") +
+  theme_minimal() +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 90),
+        plot.title = element_text(hjust = 0.5))
+```
+
+#### Average Ratings Over the Years
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+ggplot(movies, aes(x = Year, y = Rating, fill = factor(Year))) +
+  geom_boxplot() +
+  labs(x = "Year", y = "Rating") +
+  ggtitle("Average Ratings Over the Years") +
+  theme_minimal()+ theme(plot.title = element_text(hjust = 0.5))
+```
+
+### D)Votes and Ratings
+
+#### Correlation between Votes and Ratings:
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+correlation <- cor(movies$Votes, movies$Rating)
+print(correlation)
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+ggplot(movies, aes(x = Votes, y = Rating, color = factor(Rating))) +
+  geom_point(color = "purple") +
+  geom_smooth(method = "lm", se = FALSE, color = "#FBDA21", formula = y ~ x) +
+  labs(x = "Votes", y = "Rating") +
+  ggtitle("Scatter Plot of Votes vs Rating") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+The value of 0.130875 represents a quite low correlation. In this case, we can say that there is a weak linear relationship between Votes and Ratings.
+
+### E)Durations and Ratings
+
+#### Correlation between Durations and Ratings:
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+correlation1 <- cor(movies$Duration, movies$Rating)
+print(correlation1)
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+ggplot(movies, aes(x = Duration, y = Rating, color = factor(Rating))) +
+  geom_point(color = "purple") +
+  geom_smooth(method = "lm", se = FALSE, color = "#FBDA21", formula = y ~ x) +
+  labs(x = "Duration", y = "Rating") +
+  ggtitle("Scatter Plot of Votes vs Rating") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+The value of 0.03356006 represents a quite low correlation. In this case, we can say that there is a weak linear relationship between Votes and Durations. When comparing Ratings with Votes and Rating with Durations, we can say that there is a stronger connection between Ratings and Votes.
+
+## Part IV
+
+### Turkish Movies Top 1000 Movies on IMDb
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+url3 <- "https://m.imdb.com/search/title/?title_type=feature&groups=top_1000&country_of_origin=TR"
+
+title3 <- read_html(url3) %>% 
+  html_elements(".ipc-title__text") %>% html_text()
+title3 <- tail(head(title3,-1),-1)
+title3 <- str_split(title3, " ", n=2)
+title3 <- unlist(lapply(title3, function(x) {x[2]}))
+
+year3 <- read_html(url3)%>%html_elements(".dli-title-metadata-item:nth-child(1)")
+year3 <- html_text(year3)
+year3 <- as.factor(year3)
+
+top1000 <- data.frame(Title=title3,Year=year3)
+print(top1000)
+```
+
+### Combining Data Frames
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+top1000$Year <- as.numeric(as.character(top1000$Year))
+
+joineddata <- left_join(top1000,movies, by = c("Title", "Year"))
+print(joineddata)
+```
+
+### Top 11 Turkish Movie Based on Rating
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+top_movies <- movies[order(movies$Rating, decreasing = TRUE),]
+
+top11 <- head(top_movies, 11)
+print(top11)
+```
+
+The first data frame does not have a single film that matches the IMDb top 1000. I believe the differences I observed when comparing the two tables are in the film years and votes. It seems that the Top 1000 includes more recent films with significantly higher votes. (Note: I don't know why CM101MMXI Fundamentals is in the second list 😊)

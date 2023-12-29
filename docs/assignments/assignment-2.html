@@ -222,6 +222,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#a-top-5-and-bottom-5-movies-by-rating" id="toc-a-top-5-and-bottom-5-movies-by-rating" class="nav-link" data-scroll-target="#a-top-5-and-bottom-5-movies-by-rating">A) Top 5 and Bottom 5 Movies by Rating</a></li>
   <li><a href="#b-my-top-3-favorite-turkish-movies" id="toc-b-my-top-3-favorite-turkish-movies" class="nav-link" data-scroll-target="#b-my-top-3-favorite-turkish-movies">B) My Top 3 Favorite Turkish Movies</a></li>
+  <li><a href="#cplots" id="toc-cplots" class="nav-link" data-scroll-target="#cplots">C)Plots</a></li>
+  <li><a href="#dvotes-and-ratings" id="toc-dvotes-and-ratings" class="nav-link" data-scroll-target="#dvotes-and-ratings">D)Votes and Ratings</a></li>
+  <li><a href="#edurations-and-ratings" id="toc-edurations-and-ratings" class="nav-link" data-scroll-target="#edurations-and-ratings">E)Durations and Ratings</a></li>
+  </ul></li>
+  <li><a href="#part-iv" id="toc-part-iv" class="nav-link" data-scroll-target="#part-iv">Part IV</a>
+  <ul class="collapse">
+  <li><a href="#turkish-movies-top-1000-movies-on-imdb" id="toc-turkish-movies-top-1000-movies-on-imdb" class="nav-link" data-scroll-target="#turkish-movies-top-1000-movies-on-imdb">Turkish Movies Top 1000 Movies on IMDb</a></li>
+  <li><a href="#combining-data-frames" id="toc-combining-data-frames" class="nav-link" data-scroll-target="#combining-data-frames">Combining Data Frames</a></li>
+  <li><a href="#top-11-turkish-movie-based-on-rating" id="toc-top-11-turkish-movie-based-on-rating" class="nav-link" data-scroll-target="#top-11-turkish-movie-based-on-rating">Top 11 Turkish Movie Based on Rating</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -432,93 +441,35 @@ The following object is masked from 'package:readr':
 <details>
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>movies <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Title,Year,Duration,Rating,Votes)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(movies, <span class="dv">10</span>), <span class="at">caption =</span> <span class="st">"IMDB Turkish Movies"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(movies, <span class="dv">25</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>IMDB Turkish Movies</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Title</th>
-<th style="text-align: right;">Year</th>
-<th style="text-align: right;">Duration</th>
-<th style="text-align: right;">Rating</th>
-<th style="text-align: right;">Votes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Kuru Otlar Üstüne</td>
-<td style="text-align: right;">2023</td>
-<td style="text-align: right;">197</td>
-<td style="text-align: right;">8.1</td>
-<td style="text-align: right;">5081</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Istanbul Için Son Çagri</td>
-<td style="text-align: right;">2023</td>
-<td style="text-align: right;">91</td>
-<td style="text-align: right;">5.3</td>
-<td style="text-align: right;">7376</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Yedinci Kogustaki Mucize</td>
-<td style="text-align: right;">2019</td>
-<td style="text-align: right;">132</td>
-<td style="text-align: right;">8.2</td>
-<td style="text-align: right;">54161</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ölümlü Dünya 2</td>
-<td style="text-align: right;">2023</td>
-<td style="text-align: right;">117</td>
-<td style="text-align: right;">7.5</td>
-<td style="text-align: right;">3472</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Bihter</td>
-<td style="text-align: right;">2023</td>
-<td style="text-align: right;">113</td>
-<td style="text-align: right;">3.6</td>
-<td style="text-align: right;">3350</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ölümlü Dünya</td>
-<td style="text-align: right;">2018</td>
-<td style="text-align: right;">107</td>
-<td style="text-align: right;">7.6</td>
-<td style="text-align: right;">30267</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Kis Uykusu</td>
-<td style="text-align: right;">2014</td>
-<td style="text-align: right;">196</td>
-<td style="text-align: right;">8.0</td>
-<td style="text-align: right;">54642</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Dag II</td>
-<td style="text-align: right;">2016</td>
-<td style="text-align: right;">135</td>
-<td style="text-align: right;">8.2</td>
-<td style="text-align: right;">109866</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Do Not Disturb</td>
-<td style="text-align: right;">2023</td>
-<td style="text-align: right;">114</td>
-<td style="text-align: right;">6.3</td>
-<td style="text-align: right;">8773</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ayla: The Daughter of War</td>
-<td style="text-align: right;">2017</td>
-<td style="text-align: right;">125</td>
-<td style="text-align: right;">8.3</td>
-<td style="text-align: right;">42991</td>
-</tr>
-</tbody>
-</table>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       Title Year Duration Rating  Votes
+1          Kuru Otlar Üstüne 2023      197    8.1   5090
+2    Istanbul Için Son Çagri 2023       91    5.3   7398
+3   Yedinci Kogustaki Mucize 2019      132    8.2  54172
+4             Ölümlü Dünya 2 2023      117    7.5   3490
+5                     Bihter 2023      113    3.6   3356
+6               Ölümlü Dünya 2018      107    7.6  30270
+7                 Kis Uykusu 2014      196    8.0  54647
+8                     Dag II 2016      135    8.2 109870
+9             Do Not Disturb 2023      114    6.3   8781
+10 Ayla: The Daughter of War 2017      125    8.3  42992
+11              Kurak Günler 2022      129    7.6  11167
+12               Ahlat Agaci 2018      188    8.0  27015
+13   Bir Zamanlar Anadolu'da 2011      157    7.8  49365
+14       Dabbe: Cin Çarpmasi 2013      134    6.8   7109
+15                    Baskin 2015       97    5.8  12107
+16                      Kedi 2016       79    7.6  15609
+17               Sen Inandir 2023      104    5.6   2585
+18                    Mucize 2015      136    7.6  13899
+19                Fort Bliss 2014      116    6.4   3505
+20                    Bergen 2022      145    6.9   5867
+21                 Boga Boga 2023      112    5.7   4481
+22                       Dag 2012       90    7.5  23121
+23        Iyi Adamin 10 Günü 2023      124    6.5   5157
+24              Cinayet Süsü 2019      112    6.7  19220
+25                Fetih 1453 2012      165    6.5  58914</code></pre>
 </div>
 </div>
 </section>
@@ -532,20 +483,18 @@ The following object is masked from 'package:readr':
 <div class="cell">
 <details>
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Arrange the data frame in descending order by Rating</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>movies <span class="ot">&lt;-</span> movies[<span class="fu">order</span>(movies<span class="sc">$</span>Rating, <span class="at">decreasing =</span> <span class="cn">TRUE</span>),]</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Top 5 and bottom 5 movies based on user ratings</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>top5 <span class="ot">&lt;-</span> <span class="fu">head</span>(movies, <span class="dv">5</span>)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(top5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>top_movies <span class="ot">&lt;-</span> movies[<span class="fu">order</span>(movies<span class="sc">$</span>Rating, <span class="at">decreasing =</span> <span class="cn">TRUE</span>),]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>top5 <span class="ot">&lt;-</span> <span class="fu">head</span>(top_movies, <span class="dv">5</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(top5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>                           Title Year Duration Rating Votes
-257               Hababam Sinifi 1975       87    9.2 42513
-39        CM101MMXI Fundamentals 2013      139    9.1 46996
+257               Hababam Sinifi 1975       87    9.2 42512
+39        CM101MMXI Fundamentals 2013      139    9.1 46997
 273                   Tosun Pasa 1976       90    8.9 24329
-337 Hababam Sinifi Sinifta Kaldi 1975       95    8.9 24370
-321                Süt Kardesler 1976       80    8.8 20888</code></pre>
+337 Hababam Sinifi Sinifta Kaldi 1975       95    8.9 24369
+321                Süt Kardesler 1976       80    8.8 20889</code></pre>
 </div>
 </div>
 <p>I’ve watched all of them multiple times, and I believe they deserve the ratings they received.</p>
@@ -555,20 +504,20 @@ The following object is masked from 'package:readr':
 <div class="cell">
 <details>
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Arrange the data frame in descending order by Rating</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>movies <span class="ot">&lt;-</span> movies[<span class="fu">order</span>(movies<span class="sc">$</span>Rating, <span class="at">decreasing =</span> <span class="cn">TRUE</span>),]</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Top 5 and bottom 5 movies based on user ratings</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>bottom5 <span class="ot">&lt;-</span> <span class="fu">tail</span>(movies, <span class="dv">5</span>)</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bottom5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Arrange the data frame in descending order by Rating</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>bot_movies <span class="ot">&lt;-</span> movies[<span class="fu">order</span>(movies<span class="sc">$</span>Rating, <span class="at">decreasing =</span> <span class="cn">TRUE</span>),]</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Top 5 and bottom 5 movies based on user ratings</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>bottom5 <span class="ot">&lt;-</span> <span class="fu">tail</span>(bot_movies, <span class="dv">5</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bottom5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>                             Title Year Duration Rating Votes
-189                 Cumali Ceber 2 2018      100    1.2 10229
+189                 Cumali Ceber 2 2018      100    1.2 10230
 199                          Müjde 2022       48    1.2  9920
 245              15/07 Safak Vakti 2021       95    1.2 20608
-101 Cumali Ceber: Allah Seni Alsin 2017      100    1.0 39267
-150                           Reis 2017      108    1.0 73973</code></pre>
+101 Cumali Ceber: Allah Seni Alsin 2017      100    1.0 39269
+150                           Reis 2017      108    1.0 73974</code></pre>
 </div>
 </div>
 <p>I haven’t watched any of them, and I don’t intend to. Just the IMDb rating can convey a lot about a movie. I am definitely biased against these films :)</p>
@@ -579,17 +528,229 @@ The following object is masked from 'package:readr':
 <div class="cell">
 <details>
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>movies <span class="ot">&lt;-</span>movies <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Title <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Masumiyet"</span>, <span class="st">"Babam ve Oglum"</span>, <span class="st">"Yahsi Bati"</span>))</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(movies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>favorite_movies <span class="ot">&lt;-</span>movies <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Title <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Masumiyet"</span>, <span class="st">"Babam ve Oglum"</span>, <span class="st">"Yahsi Bati"</span>))</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(favorite_movies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>           Title Year Duration Rating Votes
-1 Babam ve Oglum 2005      108    8.2 91035
-2      Masumiyet 1997      110    8.1 19291
-3     Yahsi Bati 2009      112    7.4 37783</code></pre>
+1 Babam ve Oglum 2005      108    8.2 91037
+2      Masumiyet 1997      110    8.1 19295
+3     Yahsi Bati 2009      112    7.4 37784</code></pre>
 </div>
 </div>
 <p>I believe they deserve the ratings they received. The rating for Yahşi Batı could have been a bit higher. In my opinion, it’s Cem Yılmaz’s funniest movie, but some people think it’s not as good as GORA and AROG.</p>
+</section>
+<section id="cplots" class="level3">
+<h3 class="anchored" data-anchor-id="cplots">C)Plots</h3>
+<section id="average-ratings-of-turkish-movies-over-the-years" class="level4">
+<h4 class="anchored" data-anchor-id="average-ratings-of-turkish-movies-over-the-years">Average Ratings of Turkish Movies Over the Years</h4>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>movies <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">ave_rating =</span> <span class="fu">mean</span>(Rating)) <span class="sc">%&gt;%</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Year, ave_rating)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Rating Averages"</span>) <span class="sc">+</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Average Ratings of Turkish Movies Over the Years"</span>) <span class="sc">+</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="assignment-2_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Over the years, it is observed that the rating of Turkish movies has decreased. I wonder about the reason behind this. I believe it might be due to the lack of meaningful stories and scripts.</p>
+</section>
+<section id="number-of-movies-over-the-years" class="level4">
+<h4 class="anchored" data-anchor-id="number-of-movies-over-the-years">Number of Movies Over the Years</h4>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Year))) <span class="sc">+</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"purple"</span>, <span class="at">color =</span> <span class="st">"#FBDA21"</span>) <span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Number of Movies"</span>) <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Number of Movies Over the Years"</span>) <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>),</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="assignment-2_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="average-ratings-over-the-years" class="level4">
+<h4 class="anchored" data-anchor-id="average-ratings-over-the-years">Average Ratings Over the Years</h4>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Rating, <span class="at">fill =</span> <span class="fu">factor</span>(Year))) <span class="sc">+</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Rating"</span>) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Average Ratings Over the Years"</span>) <span class="sc">+</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="assignment-2_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="dvotes-and-ratings" class="level3">
+<h3 class="anchored" data-anchor-id="dvotes-and-ratings">D)Votes and Ratings</h3>
+<section id="correlation-between-votes-and-ratings" class="level4">
+<h4 class="anchored" data-anchor-id="correlation-between-votes-and-ratings">Correlation between Votes and Ratings:</h4>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>correlation <span class="ot">&lt;-</span> <span class="fu">cor</span>(movies<span class="sc">$</span>Votes, movies<span class="sc">$</span>Rating)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(correlation)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1308758</code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies, <span class="fu">aes</span>(<span class="at">x =</span> Votes, <span class="at">y =</span> Rating, <span class="at">color =</span> <span class="fu">factor</span>(Rating))) <span class="sc">+</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"purple"</span>) <span class="sc">+</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"#FBDA21"</span>, <span class="at">formula =</span> y <span class="sc">~</span> x) <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Votes"</span>, <span class="at">y =</span> <span class="st">"Rating"</span>) <span class="sc">+</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Scatter Plot of Votes vs Rating"</span>) <span class="sc">+</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="assignment-2_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The value of 0.130875 represents a quite low correlation. In this case, we can say that there is a weak linear relationship between Votes and Ratings.</p>
+</section>
+</section>
+<section id="edurations-and-ratings" class="level3">
+<h3 class="anchored" data-anchor-id="edurations-and-ratings">E)Durations and Ratings</h3>
+<section id="correlation-between-durations-and-ratings" class="level4">
+<h4 class="anchored" data-anchor-id="correlation-between-durations-and-ratings">Correlation between Durations and Ratings:</h4>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>correlation1 <span class="ot">&lt;-</span> <span class="fu">cor</span>(movies<span class="sc">$</span>Duration, movies<span class="sc">$</span>Rating)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(correlation1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.03356006</code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies, <span class="fu">aes</span>(<span class="at">x =</span> Duration, <span class="at">y =</span> Rating, <span class="at">color =</span> <span class="fu">factor</span>(Rating))) <span class="sc">+</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"purple"</span>) <span class="sc">+</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"#FBDA21"</span>, <span class="at">formula =</span> y <span class="sc">~</span> x) <span class="sc">+</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Duration"</span>, <span class="at">y =</span> <span class="st">"Rating"</span>) <span class="sc">+</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Scatter Plot of Votes vs Rating"</span>) <span class="sc">+</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="assignment-2_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The value of 0.03356006 represents a quite low correlation. In this case, we can say that there is a weak linear relationship between Votes and Durations. When comparing Ratings with Votes and Rating with Durations, we can say that there is a stronger connection between Ratings and Votes.</p>
+</section>
+</section>
+</section>
+<section id="part-iv" class="level2">
+<h2 class="anchored" data-anchor-id="part-iv">Part IV</h2>
+<section id="turkish-movies-top-1000-movies-on-imdb" class="level3">
+<h3 class="anchored" data-anchor-id="turkish-movies-top-1000-movies-on-imdb">Turkish Movies Top 1000 Movies on IMDb</h3>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>url3 <span class="ot">&lt;-</span> <span class="st">"https://m.imdb.com/search/title/?title_type=feature&amp;groups=top_1000&amp;country_of_origin=TR"</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>title3 <span class="ot">&lt;-</span> <span class="fu">read_html</span>(url3) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_elements</span>(<span class="st">".ipc-title__text"</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>()</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>title3 <span class="ot">&lt;-</span> <span class="fu">tail</span>(<span class="fu">head</span>(title3,<span class="sc">-</span><span class="dv">1</span>),<span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>title3 <span class="ot">&lt;-</span> <span class="fu">str_split</span>(title3, <span class="st">" "</span>, <span class="at">n=</span><span class="dv">2</span>)</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>title3 <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">lapply</span>(title3, <span class="cf">function</span>(x) {x[<span class="dv">2</span>]}))</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>year3 <span class="ot">&lt;-</span> <span class="fu">read_html</span>(url3)<span class="sc">%&gt;%</span><span class="fu">html_elements</span>(<span class="st">".dli-title-metadata-item:nth-child(1)"</span>)</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>year3 <span class="ot">&lt;-</span> <span class="fu">html_text</span>(year3)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>year3 <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(year3)</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>top1000 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Title=</span>title3,<span class="at">Year=</span>year3)</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(top1000)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       Title Year
+1   Yedinci Kogustaki Mucize 2019
+2                 Kis Uykusu 2014
+3      Nefes: Vatan Sagolsun 2009
+4  Ayla: The Daughter of War 2017
+5             Babam ve Oglum 2005
+6                Ahlat Agaci 2018
+7    Bir Zamanlar Anadolu'da 2011
+8                     Eskiya 1996
+9                   G.O.R.A. 2004
+10                 Vizontele 2001
+11  Her Sey Çok Güzel Olacak 1998</code></pre>
+</div>
+</div>
+</section>
+<section id="combining-data-frames" class="level3">
+<h3 class="anchored" data-anchor-id="combining-data-frames">Combining Data Frames</h3>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>top1000<span class="sc">$</span>Year <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(top1000<span class="sc">$</span>Year))</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>joineddata <span class="ot">&lt;-</span> <span class="fu">left_join</span>(top1000,movies, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"Title"</span>, <span class="st">"Year"</span>))</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(joineddata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       Title Year Duration Rating Votes
+1   Yedinci Kogustaki Mucize 2019      132    8.2 54172
+2                 Kis Uykusu 2014      196    8.0 54647
+3      Nefes: Vatan Sagolsun 2009      128    8.0 35022
+4  Ayla: The Daughter of War 2017      125    8.3 42992
+5             Babam ve Oglum 2005      108    8.2 91037
+6                Ahlat Agaci 2018      188    8.0 27015
+7    Bir Zamanlar Anadolu'da 2011      157    7.8 49365
+8                     Eskiya 1996      128    8.1 71704
+9                   G.O.R.A. 2004      127    8.0 66032
+10                 Vizontele 2001      110    8.0 38403
+11  Her Sey Çok Güzel Olacak 1998      107    8.1 27122</code></pre>
+</div>
+</div>
+</section>
+<section id="top-11-turkish-movie-based-on-rating" class="level3">
+<h3 class="anchored" data-anchor-id="top-11-turkish-movie-based-on-rating">Top 11 Turkish Movie Based on Rating</h3>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>top_movies <span class="ot">&lt;-</span> movies[<span class="fu">order</span>(movies<span class="sc">$</span>Rating, <span class="at">decreasing =</span> <span class="cn">TRUE</span>),]</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>top11 <span class="ot">&lt;-</span> <span class="fu">head</span>(top_movies, <span class="dv">11</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(top11)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                           Title Year Duration Rating Votes
+257               Hababam Sinifi 1975       87    9.2 42512
+39        CM101MMXI Fundamentals 2013      139    9.1 46997
+273                   Tosun Pasa 1976       90    8.9 24329
+337 Hababam Sinifi Sinifta Kaldi 1975       95    8.9 24369
+321                Süt Kardesler 1976       80    8.8 20889
+284             Saban Oglu Saban 1977       90    8.7 18534
+307                   Zügürt Aga 1985      101    8.7 16136
+317                Neseli Günler 1978       95    8.7 11807
+323                  Kibar Feyzo 1978       83    8.7 17126
+380      Hababam Sinifi Uyaniyor 1976       94    8.7 20640
+343               Canim Kardesim 1973       85    8.6 10097</code></pre>
+</div>
+</div>
+<p>The first data frame does not have a single film that matches the IMDb top 1000. I believe the differences I observed when comparing the two tables are in the film years and votes. It seems that the Top 1000 includes more recent films with significantly higher votes. (Note: I don’t know why CM101MMXI Fundamentals is in the second list 😊)</p>
 
 
 </section>
